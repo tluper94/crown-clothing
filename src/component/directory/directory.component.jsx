@@ -8,8 +8,6 @@ import categoriesData from './categories';
 const Directory = () => {
   const [categories, setCategories] = useState(categoriesData);
 
-  console.log(categories);
-
   return (
     <div className='categories-container'>
       {categories.map(({ id, ...otherCategoryProps }) => (
