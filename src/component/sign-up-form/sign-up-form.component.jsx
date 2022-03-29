@@ -1,4 +1,3 @@
-import { async } from "@firebase/util"
 import { useState } from "react"
 
 import {
@@ -21,8 +20,6 @@ const SignUp = () => {
     const [formFields, setFormFields] = useState(defaultFormFields)
     const { displayName, email, password, confirmPassword } = formFields;
 
-    console.log(formFields)
-
     const restFormFields = () => {
         setFormFields(defaultFormFields)
     }
@@ -44,7 +41,6 @@ const SignUp = () => {
                 alert('Email already in use')
             } else {
                 console.log('User creation encountered a error', err)
-
             }
         }
     }
@@ -57,7 +53,7 @@ const SignUp = () => {
     }
     return (
         <div className="sign-up-container">
-            <h2>Don't have and account</h2>
+            <h2>Don't have an account</h2>
             <span>Sign up with your email and password</span>
             <form onSubmit={handleSubmit}>
                 <FormInput
