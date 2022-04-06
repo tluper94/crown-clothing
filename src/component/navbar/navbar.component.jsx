@@ -3,14 +3,15 @@ import { Link } from 'react-router-dom';
 
 import './nvabar.styles.scss';
 
+import CartIcon from '../cart-icon/cart-icon.component';
+import CartDropdown from '../cart-dropdown/cart-dropdown.component';
+
 import { ReactComponent as CrwnLogo } from '../../assets/crown.svg';
-import { UserContext } from '..//../context/user.context'
+import { UserContext } from '..//../context/user.context';
 import { signOutUser } from '../../utils/firebase/firebase.utils';
 
-
 const Navbar = () => {
-
-  const { currentUser } = useContext(UserContext)
+  const { currentUser } = useContext(UserContext);
 
   return (
     <div className='navigation'>
@@ -21,14 +22,18 @@ const Navbar = () => {
         <Link className='nav-link' to='/shop'>
           Shop
         </Link>
-        {
-          currentUser ? (
-            <span className='nav-link' onClick={signOutUser}>SIGN OUT</span>
-          ) : (<Link className='nav-link' to='/auth'>
+        {currentUser ? (
+          <span className='nav-link' onClick={signOutUser}>
+            SIGN OUT
+          </span>
+        ) : (
+          <Link className='nav-link' to='/auth'>
             Sign In
-          </Link>)
-        }
+          </Link>
+        )}
+        <CartIcon />
       </div>
+      <CartDropdown />
     </div>
   );
 };
