@@ -3,7 +3,7 @@
   position: absolute;
   width: 240px;
   height: 340px;
-  display: none;
+  display: flex;
   flex-direction: column;
   padding: 20px;
   border: 1px solid black;
@@ -21,14 +21,13 @@
     height: 240px;
     display: flex;
     flex-direction: column;
-    overflow: scroll;
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: 2px; /* for Firefox */
+    scrollbar-color: grey white ;
+    overflow-y: scroll;
   }
   
   button {
     margin-top: auto;
   }
-}
-
-.display-cart {
-  display: flex;
 }

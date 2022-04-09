@@ -8,11 +8,12 @@ import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 
 import { ReactComponent as CrwnLogo } from '../../assets/crown.svg';
 import { UserContext } from '..//../context/user.context';
+import { CartContext } from '../../context/cart.context';
 import { signOutUser } from '../../utils/firebase/firebase.utils';
 
 const Navbar = () => {
   const { currentUser } = useContext(UserContext);
-
+  const { isCartOpen } = useContext(CartContext);
   return (
     <div className='navigation'>
       <Link className='logo-container' to='/'>
@@ -33,7 +34,7 @@ const Navbar = () => {
         )}
         <CartIcon />
       </div>
-      <CartDropdown />
+      {isCartOpen && <CartDropdown />}
     </div>
   );
 };
